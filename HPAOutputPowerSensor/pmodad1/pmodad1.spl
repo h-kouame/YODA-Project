@@ -1,0 +1,10 @@
+[Inputs]
+clk
+pmod_data1
+pmod_data2
+[Outputs]
+pmod_cs
+pmod_clk
+=data_ch1[15:0]=
+=data_ch2[15:0]=
+[BiDir]

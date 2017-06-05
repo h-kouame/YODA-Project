@@ -1,0 +1,430 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.86 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.86 secs
+ 
+--> Reading design: pmodad1.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "pmodad1.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "pmodad1"
+Output Format                      : NGC
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : pmodad1
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Xilinx\14.7\ISE_DS\pmodad1\pmodad1.vhd" into library work
+Parsing entity <pmodad1>.
+Parsing architecture <Behavioral> of entity <pmodad1>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <pmodad1> (architecture <Behavioral>) with generics from library <work>.
+INFO:HDLCompiler:679 - "C:\Xilinx\14.7\ISE_DS\pmodad1\pmodad1.vhd" Line 113. Case statement is complete. others clause is never selected
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <pmodad1>.
+    Related source file is "C:\Xilinx\14.7\ISE_DS\pmodad1\pmodad1.vhd".
+        clk_div = 100
+        pmod_clk_cycles = 16
+    Found 2-bit register for signal <state[1]_dff_14_OUT>.
+    Found 16-bit register for signal <state[1]_dff_15_OUT>.
+    Found 16-bit register for signal <state[1]_dff_16_OUT>.
+    Found 32-bit register for signal <state[1]_dff_17_OUT>.
+    Found 16-bit register for signal <data_ch1_sig[15]_dff_18_OUT>.
+    Found 16-bit register for signal <data_ch2_sig[15]_dff_19_OUT>.
+    Found 1-bit register for signal <pmod_cs_sig_pmod_clk_sig_DFF_52_q>.
+    Found 32-bit register for signal <clk_cnt>.
+    Found 1-bit register for signal <pmod_clk_sig>.
+    Found 1-bit register for signal <pmod_clk>.
+    Found 1-bit register for signal <pmod_cs_sig>.
+    Found 2-bit register for signal <state>.
+    Found 16-bit register for signal <data_ch1_sig>.
+    Found 16-bit register for signal <data_ch2_sig>.
+    Found 32-bit register for signal <pmod_clk_cycles_var>.
+    Found 16-bit register for signal <data_ch1>.
+    Found 16-bit register for signal <data_ch2>.
+    Found 1-bit register for signal <pmod_cs>.
+    Found 1-bit register for signal <state[1]_pmod_clk_sig_DFF_1_q>.
+    Found 32-bit subtractor for signal <clk_cnt[31]_GND_6_o_sub_1_OUT<31:0>> created at line 79.
+    Found 32-bit subtractor for signal <pmod_clk_cycles_var[31]_GND_6_o_sub_5_OUT<31:0>> created at line 106.
+    Found 16-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_11_OUT> created at line 91.
+    Found 16-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_12_OUT> created at line 91.
+    Found 32-bit comparator greater for signal <pmod_clk_cycles_var[31]_GND_6_o_LessThan_4_o> created at line 103
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred 234 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   7 Multiplexer(s).
+Unit <pmodad1> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 32-bit subtractor                                     : 2
+# Registers                                            : 19
+ 1-bit register                                        : 6
+ 16-bit register                                       : 8
+ 2-bit register                                        : 2
+ 32-bit register                                       : 3
+# Comparators                                          : 1
+ 32-bit comparator greater                             : 1
+# Multiplexers                                         : 7
+ 16-bit 2-to-1 multiplexer                             : 2
+ 16-bit 3-to-1 multiplexer                             : 2
+ 32-bit 2-to-1 multiplexer                             : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 32-bit subtractor                                     : 2
+# Registers                                            : 234
+ Flip-Flops                                            : 234
+# Comparators                                          : 1
+ 32-bit comparator greater                             : 1
+# Multiplexers                                         : 7
+ 16-bit 2-to-1 multiplexer                             : 2
+ 16-bit 3-to-1 multiplexer                             : 2
+ 32-bit 2-to-1 multiplexer                             : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <pmodad1> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block pmodad1, actual ratio is 4.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 234
+ Flip-Flops                                            : 234
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : pmodad1.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 288
+#      GND                         : 1
+#      INV                         : 62
+#      LUT1                        : 2
+#      LUT2                        : 2
+#      LUT3                        : 2
+#      LUT4                        : 34
+#      LUT5                        : 39
+#      LUT6                        : 12
+#      MUXCY                       : 69
+#      VCC                         : 1
+#      XORCY                       : 64
+# FlipFlops/Latches                : 234
+#      FD_1                        : 234
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 36
+#      IBUF                        : 2
+#      OBUF                        : 34
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             201  out of  18224     1%  
+ Number of Slice LUTs:                  153  out of   9112     1%  
+    Number used as Logic:               153  out of   9112     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    253
+   Number with an unused Flip Flop:      52  out of    253    20%  
+   Number with an unused LUT:           100  out of    253    39%  
+   Number of fully used LUT-FF pairs:   101  out of    253    39%  
+   Number of unique control sets:         2
+
+IO Utilization: 
+ Number of IOs:                          37
+ Number of bonded IOBs:                  37  out of    232    15%  
+    IOB Flip Flops/Latches:              33
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+pmod_clk_sig                       | BUFG                   | 100   |
+clk                                | BUFGP                  | 134   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 4.563ns (Maximum Frequency: 219.173MHz)
+   Minimum input arrival time before clock: 2.211ns
+   Maximum output required time after clock: 3.668ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.563ns (frequency: 219.173MHz)
+  Total number of paths / destination ports: 3172 / 34
+-------------------------------------------------------------------------
+Delay:               4.563ns (Levels of Logic = 6)
+  Source:            clk_cnt_0 (FF)
+  Destination:       clk_cnt_2 (FF)
+  Source Clock:      clk falling
+  Destination Clock: clk falling
+
+  Data Path: clk_cnt_0 to clk_cnt_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD_1:C->Q             1   0.447   0.580  clk_cnt_0 (clk_cnt_0)
+     LUT1:I0->O            1   0.205   0.000  Msub_clk_cnt[31]_GND_6_o_sub_1_OUT<31:0>_cy<0>_rt (Msub_clk_cnt[31]_GND_6_o_sub_1_OUT<31:0>_cy<0>_rt)
+     MUXCY:S->O            1   0.172   0.000  Msub_clk_cnt[31]_GND_6_o_sub_1_OUT<31:0>_cy<0> (Msub_clk_cnt[31]_GND_6_o_sub_1_OUT<31:0>_cy<0>)
+     XORCY:CI->O           3   0.180   0.995  Msub_clk_cnt[31]_GND_6_o_sub_1_OUT<31:0>_xor<1> (clk_cnt[31]_GND_6_o_sub_1_OUT<1>)
+     LUT6:I1->O            2   0.203   0.617  GND_6_o_clk_cnt[31]_equal_2_o<31>1 (GND_6_o_clk_cnt[31]_equal_2_o<31>)
+     LUT6:I5->O            3   0.205   0.651  GND_6_o_clk_cnt[31]_equal_2_o<31>2 (GND_6_o_clk_cnt[31]_equal_2_o<31>1)
+     LUT6:I5->O            1   0.205   0.000  Mmux_clk_cnt[31]_GND_6_o_mux_2_OUT291 (clk_cnt[31]_GND_6_o_mux_2_OUT<6>)
+     FD_1:D                    0.102          clk_cnt_6
+    ----------------------------------------
+    Total                      4.563ns (1.719ns logic, 2.844ns route)
+                                       (37.7% logic, 62.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'pmod_clk_sig'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              2.211ns (Levels of Logic = 2)
+  Source:            pmod_data1 (PAD)
+  Destination:       _i000026_0 (FF)
+  Destination Clock: pmod_clk_sig falling
+
+  Data Path: pmod_data1 to _i000026_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.684  pmod_data1_IBUF (pmod_data1_IBUF)
+     LUT5:I3->O            1   0.203   0.000  Mmux_state[1]_X_6_o_wide_mux_11_OUT11 (state[1]_X_6_o_wide_mux_11_OUT<0>)
+     FD_1:D                    0.102          _i000026_0
+    ----------------------------------------
+    Total                      2.211ns (1.527ns logic, 0.684ns route)
+                                       (69.1% logic, 30.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 34 / 34
+-------------------------------------------------------------------------
+Offset:              3.668ns (Levels of Logic = 1)
+  Source:            pmod_clk (FF)
+  Destination:       pmod_clk (PAD)
+  Source Clock:      clk falling
+
+  Data Path: pmod_clk to pmod_clk
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD_1:C->Q             3   0.447   0.650  pmod_clk (pmod_clk_OBUF)
+     OBUF:I->O                 2.571          pmod_clk_OBUF (pmod_clk)
+    ----------------------------------------
+    Total                      3.668ns (3.018ns logic, 0.650ns route)
+                                       (82.3% logic, 17.7% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    4.563|         |
+pmod_clk_sig   |         |         |    1.128|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock pmod_clk_sig
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |         |         |    4.324|         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.77 secs
+ 
+--> 
+
+Total memory usage is 245868 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

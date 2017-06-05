@@ -1,0 +1,7 @@
+vhdtdtfi -lib work ../SPI_Module/SPI_Module.vhd -prj PowerSensor -o SPI_Module.spl -module SPI_Module -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 SPI_Module.spl C:/Xilinx/14.7/ISE_DS/PowerSensor/SPI_Module.sym 
+vhdtdtfi -lib work ../SPI_Module/SPI_Module.vhd -prj PowerSensor -o SPI_Module.spl -module SPI_Module -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 SPI_Module.spl C:/Xilinx/14.7/ISE_DS/PowerSensor/SPI_Module.sym 
+xst -intstyle ise -ifn "C:/Xilinx/14.7/ISE_DS/PowerSensor/SPI_Module.xst" -ofn "C:/Xilinx/14.7/ISE_DS/PowerSensor/SPI_Module.syr" 
+xst -intstyle ise -ifn "C:/Xilinx/14.7/ISE_DS/PowerSensor/SPI_Module.xst" -ofn "C:/Xilinx/14.7/ISE_DS/PowerSensor/SPI_Module.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-3 SPI_Module.ngc SPI_Module.ngd  

@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "C:/Xilinx/14.7/ISE_DS/pmodad1/pmodad1.xst" -ofn "C:/Xilinx/14.7/ISE_DS/pmodad1/pmodad1.syr" 
+vhdtdtfi -lib work pmodad1.vhd -prj pmodad1 -o pmodad1.spl -module pmodad1 -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 -w pmodad1.spl C:/Xilinx/14.7/ISE_DS/pmodad1/pmodad1.sym 

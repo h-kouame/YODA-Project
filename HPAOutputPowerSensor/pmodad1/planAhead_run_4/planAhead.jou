@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Tue Jul 12 15:10:54 2016
+# Process ID: 9516
+# Log file: C:/Xilinx/14.7/ISE_DS/pmodad1/planAhead_run_4/planAhead.log
+# Journal file: C:/Xilinx/14.7/ISE_DS/pmodad1/planAhead_run_4/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source C:/Xilinx/14.7/ISE_DS/pmodad1/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin V10 [get_ports clk]
+endgroup
+startgroup
+set_property package_pin P11 [get_ports pmod_clk]
+endgroup
+startgroup
+set_property package_pin T12 [get_ports pmod_cs]
+endgroup
+startgroup
+set_property package_pin V12 [get_ports pmod_data1]
+endgroup
+startgroup
+set_property package_pin N10 [get_ports pmod_data2]
+endgroup
+save_constraints
+write_csv C:/Xilinx/14.7/ISE_DS/pmodad1/planAhead_run_4/elab_constrs_1.csv -force
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
