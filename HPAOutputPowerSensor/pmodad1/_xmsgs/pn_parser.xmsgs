@@ -8,7 +8,7 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Xilinx/14.7/ISE_DS/pmodad1/pmodad1.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;C:/Users/KZM/Google Drive/Work/EEE4084F/YODA Code/YODA-Project/HPAOutputPowerSensor/pmodad1/pmodad1.vhd&quot; into library work</arg>
 </msg>
 
 </messages>
