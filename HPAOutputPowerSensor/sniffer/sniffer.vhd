@@ -29,27 +29,40 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+-- library UNISIM;
+-- use UNISIM.VComponents.all;
 
 entity sniffer is
-    Port ( clk : in  STD_LOGIC;
-           pmod_data1 : in  STD_LOGIC;
-           pmod_data2 : in  STD_LOGIC;
-           led : out  STD_LOGIC_VECTOR (7 downto 0);
-			  pmod_clk : out STD_LOGIC
+    Port ( clk : in STD_LOGIC;
+           pmod_data1 : in STD_LOGIC;
+           pmod_data2 : in STD_LOGIC;
+           led : out STD_LOGIC_VECTOR (7 downto 0);
+			  pmod_clk : out STD_LOGIC;
+			  pmod_cs : out STD_LOGIC
 			 );
 end sniffer;
 
 architecture Behavioral of sniffer is
 
 signal cs : STD_LOGIC := '0';
+signal s_clk : STD_LOGIC;
+signal s_pmod_data1 : STD_LOGIC;
+signal s_pmod_data2 : STD_LOGIC;
+signal s_led : STD_LOGIC_VECTOR (7 downto 0);
+signal s_pmod_clk : STD_LOGIC;
+
 signal data_ch1, data_ch2 : STD_LOGIC_VECTOR (15 downto 0);
 
 begin
+pmod_cs <= cs;
+s_clk <= clk;
+s_pmod_data1 <= pmod_data1;
+s_pmod_data2 <= pmod_data2;
+led <= s_led;
+pmod_clk <= s_pmod_clk;
 
-pmod : entity work.pmodad1 port map(clk, cs, pmod_data1, pmod_data2, pmod_clk, data_ch1, data_ch2);
-detector : entity work.detector port map(clk, cs, data_ch1, led);
+pmod : entity work.pmodad1 port map(s_clk, cs, s_pmod_data1, s_pmod_data2, s_pmod_clk, data_ch1, data_ch2);
+detector : entity work.detector port map(s_clk, cs, data_ch1, s_led);
 
 end Behavioral;
 
