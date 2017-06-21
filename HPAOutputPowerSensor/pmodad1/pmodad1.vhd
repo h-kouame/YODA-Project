@@ -67,6 +67,7 @@ signal pmod_clk_sig	: STD_LOGIC 							:='0'; -- used to keep track of the risin
 signal pmod_cs_sig	: STD_LOGIC 							:='1'; -- keeps track of pmod_cs
 signal data_ch1_sig  : STD_LOGIC_VECTOR(15 downto 0)	:="0000000000000000";
 signal data_ch2_sig  : STD_LOGIC_VECTOR(15 downto 0)	:="0000000000000000";
+signal prev : STD_LOGIC := '1';
 
 begin
 	process(clk) is
@@ -75,6 +76,13 @@ begin
 		variable pmod_clk_cycles_var: Integer:=16;
 		begin
 		-- Divide Clock
+--						if ((prev = '1') and (pmod_data2 = '0')) then
+--					state <= ready;
+--					pmod_cs_sig <= '0';
+--					pmod_clk_cycles_var:=16;
+--					prev <= '0';
+--				--end if;
+				
 			if falling_edge(clk) then 	
 				clk_cnt := clk_cnt - 1;
 				if (clk_cnt =0) then
@@ -84,7 +92,7 @@ begin
 				end if;
 				
 				if falling_edge(pmod_clk_sig) then
-					
+					prev <= '1';
 -- with cases the outputs changed in one of the cases must be changed in the other cases
 -- even if the value at that output is the same as what it was previously
 

@@ -37,16 +37,18 @@ entity detector is
            cs : in  STD_LOGIC;
 			  btns : in STD_LOGIC := '0';
            data_in : in  STD_LOGIC_VECTOR (15 downto 0);
+			  ss : in STD_LOGIC_VECTOR (15 downto 0) := x"FFFF";
            led : out  STD_LOGIC_VECTOR (7 downto 0));
 end detector;
 
 architecture Behavioral of detector is
 
-type machine is (waiting, search, found); 
-signal state		 	: machine 								:= waiting;
+type machine is (setup, waiting, search, found); 
+signal state		 	: machine 								:= setup;
 type INPUT_BUFFER_TYPE is array (0 to 3) of STD_LOGIC_VECTOR (7 downto 0);
 -- Sequence "BEEF"  
 signal input_buffer : INPUT_BUFFER_TYPE;
+signal prev : STD_LOGIC_VECTOR (15 downto 0) := x"FFFF";
 
 shared variable buffer_index : integer range 0 to 2 := 0;
 shared variable word_index : integer range 0 to 8 := 0;
@@ -59,9 +61,23 @@ begin
 	
 		if falling_edge(clk) then 
 			case state is
-					when waiting =>
+					when setup =>
+					-- During setup reset the LEDs and wait for the first CS falling edge
+					-- Move to waiting 
+					-- The first CS falling edge occurs as part of the pmodad setup and must be ignored
 					led <= x"00";
 					if falling_edge(cs) then
+						state <= waiting;
+						buffer_index := 0;
+						word_index := 0;
+						num_inputs := 0;
+					end if;
+					
+					when waiting =>
+					led <= x"00";
+					-- During waiting, wait for falling edge on SS
+					if ((prev > x"0800") and (ss < x"0010")) then
+						prev <= x"0000";
 						state <= search;
 					end if;
 					
@@ -109,7 +125,8 @@ begin
 						
 					when found =>
 						if (btns = '1') then
-							state <= search;
+							state <= waiting;
+							prev <= x"FFFF";
 						end if;
 						led <= x"AA";
 						

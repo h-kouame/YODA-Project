@@ -63,7 +63,7 @@ led <= s_led;
 pmod_clk <= s_pmod_clk;
 
 pmod : entity work.pmodad1 port map(s_clk, cs, s_pmod_data1, s_pmod_data2, s_pmod_clk, data_ch1, data_ch2);
-detector : entity work.detector port map(s_clk, cs, btns, data_ch1, s_led);
+detector : entity work.detector port map(s_clk, cs, btns, data_ch1, data_ch2, s_led);
 
 end Behavioral;
 
