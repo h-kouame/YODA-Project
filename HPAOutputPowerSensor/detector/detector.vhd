@@ -67,18 +67,27 @@ begin
 					-- The first CS falling edge occurs as part of the pmodad setup and must be ignored
 					led <= x"00";
 					if falling_edge(cs) then
+					
+					if (ss < x"0003") then
+						prev <= x"0000";
+					else
+						prev <= x"FFFF";
+					end if;
+					
 						state <= waiting;
-						buffer_index := 0;
-						word_index := 0;
-						num_inputs := 0;
 					end if;
 					
 					when waiting =>
 					led <= x"00";
-					-- During waiting, wait for falling edge on SS
-					if ((prev > x"0800") and (ss < x"0010")) then
+					-- During waiting, check for falling edge on SS to transition to search state
+					if ((prev > x"0800") and (ss < x"0003")) then
 						prev <= x"0000";
 						state <= search;
+						buffer_index := 0;
+						word_index := 0;
+						num_inputs := 0;
+					else
+						prev <= x"FFFF";
 					end if;
 					
 					when search =>
@@ -125,8 +134,12 @@ begin
 						
 					when found =>
 						if (btns = '1') then
+							if (ss < x"0003") then
+								prev <= x"0000";
+							else
+								prev <= x"FFFF";
+							end if;
 							state <= waiting;
-							prev <= x"FFFF";
 						end if;
 						led <= x"AA";
 						
