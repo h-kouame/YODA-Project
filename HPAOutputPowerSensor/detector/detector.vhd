@@ -35,75 +35,74 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity detector is
     Port ( clk : in  STD_LOGIC;
            cs : in  STD_LOGIC;
+			  btns : in STD_LOGIC := '0';
            data_in : in  STD_LOGIC_VECTOR (15 downto 0);
            led : out  STD_LOGIC_VECTOR (7 downto 0));
 end detector;
 
 architecture Behavioral of detector is
 
-type machine is (search, found); 
-signal state		 	: machine 								:= search;
-type INPUT_BUFFER_TYPE is array (0 to 2) of STD_LOGIC_VECTOR (7 downto 0);
+type machine is (waiting, search, found); 
+signal state		 	: machine 								:= waiting;
+type INPUT_BUFFER_TYPE is array (0 to 3) of STD_LOGIC_VECTOR (7 downto 0);
 -- Sequence "BEEF"  
 signal input_buffer : INPUT_BUFFER_TYPE;
 
-shared variable buffer_index : integer range 0 to 1 := 1;
+shared variable buffer_index : integer range 0 to 2 := 0;
 shared variable word_index : integer range 0 to 8 := 0;
 shared variable num_inputs : integer range 0 to 3 := 0;
-shared variable first_check : integer range 0 to 1 := 0;
 
 begin
+
 	process(clk) is
 	begin
 	
 		if falling_edge(clk) then 
 			case state is
+					when waiting =>
+					if falling_edge(cs) then
+						state <= search;
+					end if;
+					
 					when search =>
 					-- On the falling edge of cs shift old data along the buffer then read in new data
 					-- Else check pairs if equal to sequence
 					-- If pair equal set state to found and exit loop
 						if falling_edge(cs) then
 							
-							if (buffer_index = 0) then
-								input_buffer(2) <= input_buffer(0);
-								
-								input_buffer(1) <= x"00";
-								
-								if (data_in >= x"800") then
-									input_buffer(0) <= x"00";
-								else
-									input_buffer(0) <= x"01";
-								end if;
-								
-								input_buffer(1) <= x"00";
-							end if;
+--							if (buffer_index = 0) then
+--								input_buffer(2) <= input_buffer(1);
+--							end if;
 							
 							if (word_index = 8) then
-								--input_buffer(buffer_index) <= temp;
-								--led <= input_buffer(buffer_index);
-								
-								buffer_index := buffer_index + 1;
+								if (buffer_index = 3) then
+									buffer_index := 0;
+								else
+									buffer_index := buffer_index + 1;
+								end if;
 												
-								if (num_inputs < 3) then
+								if (num_inputs < 2) then
 									num_inputs := num_inputs + 1;
 								end if;
 								word_index := 0;
 
+							else								
+								word_index := word_index + 1;
 							end if;
 							
-							word_index := word_index + 1;
-							
-							if ((data_in >= x"800") and (buffer_index /= 0))then
+							if (data_in >= x"800")then
+								led <= x"BB";
 								input_buffer(buffer_index) <= input_buffer(buffer_index)(input_buffer(buffer_index)'high - 1 downto 0) & '1';
-							elsif (buffer_index /= 0) then
+							else
+								led <= x"10";
 								input_buffer(buffer_index) <= input_buffer(buffer_index)(input_buffer(buffer_index)'high - 1 downto 0) & '0';
 							end if;
-
+							
 						end if;
-						if (num_inputs = 3) then
-							for i in 0 to 1 loop
-								if ((input_buffer(i) = x"DC") and 
-								(input_buffer(i + 1) = x"00")) then
+						if (num_inputs = 2) then
+							for i in 0 to 2 loop
+								if ((input_buffer(i + 1) = x"FF") and 
+								(input_buffer(i) = x"00")) then
 									state <= found;
 									exit;
 								end if;
@@ -111,6 +110,10 @@ begin
 						end if;
 						
 					when found =>
+						if (btns = '1') then
+							led <= x"00";
+							state <= search;
+						end if;
 						led <= x"AA";
 						
 					when others =>
