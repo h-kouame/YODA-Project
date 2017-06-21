@@ -37,7 +37,7 @@ entity sniffer is
            pmod_data1 : in STD_LOGIC;
            pmod_data2 : in STD_LOGIC;
 			  btns : in STD_LOGIC := '0';
-           led : out STD_LOGIC_VECTOR (7 downto 0);
+           led : out STD_LOGIC_VECTOR (7 downto 0) := x"00";
 			  pmod_clk : out STD_LOGIC;
 			  pmod_cs : out STD_LOGIC
 			 );

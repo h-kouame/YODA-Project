@@ -60,6 +60,7 @@ begin
 		if falling_edge(clk) then 
 			case state is
 					when waiting =>
+					led <= x"00";
 					if falling_edge(cs) then
 						state <= search;
 					end if;
@@ -68,11 +69,8 @@ begin
 					-- On the falling edge of cs shift old data along the buffer then read in new data
 					-- Else check pairs if equal to sequence
 					-- If pair equal set state to found and exit loop
+					led <= x"00";
 						if falling_edge(cs) then
-							
---							if (buffer_index = 0) then
---								input_buffer(2) <= input_buffer(1);
---							end if;
 							
 							if (word_index = 8) then
 								if (buffer_index = 3) then
@@ -91,10 +89,10 @@ begin
 							end if;
 							
 							if (data_in >= x"800")then
-								led <= x"BB";
+								--led <= x"80";
 								input_buffer(buffer_index) <= input_buffer(buffer_index)(input_buffer(buffer_index)'high - 1 downto 0) & '1';
 							else
-								led <= x"10";
+								--led <= x"01";
 								input_buffer(buffer_index) <= input_buffer(buffer_index)(input_buffer(buffer_index)'high - 1 downto 0) & '0';
 							end if;
 							
@@ -111,7 +109,6 @@ begin
 						
 					when found =>
 						if (btns = '1') then
-							led <= x"00";
 							state <= search;
 						end if;
 						led <= x"AA";
