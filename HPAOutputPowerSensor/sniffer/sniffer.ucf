@@ -24,3 +24,7 @@ NET "pmod_data2" LOC = N10 | IOSTANDARD = LVCMOS33 | TIG;
 # OUT
 NET "pmod_cs" LOC = T12 | IOSTANDARD = LVCMOS33 | TIG; 
 NET "pmod_clk" LOC = P11 | IOSTANDARD = LVCMOS33 | TIG; 
+
+## Buttons
+#  Reset
+NET "btns" LOC = B8 | IOSTANDARD = LVCMOS33 | TIG;
