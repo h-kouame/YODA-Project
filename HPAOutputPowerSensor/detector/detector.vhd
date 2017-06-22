@@ -52,7 +52,7 @@ signal prev : STD_LOGIC_VECTOR (15 downto 0) := x"FFFF";
 
 shared variable buffer_index : integer range 0 to 2 := 0;
 shared variable word_index : integer range 0 to 8 := 0;
-shared variable num_inputs : integer range 0 to 3 := 0;
+shared variable num_inputs : integer range 0 to 4 := 0;
 
 begin
 
@@ -104,7 +104,7 @@ begin
 									buffer_index := buffer_index + 1;
 								end if;
 												
-								if (num_inputs < 2) then
+								if (num_inputs < 4) then
 									num_inputs := num_inputs + 1;
 								end if;
 								word_index := 0;
@@ -122,7 +122,7 @@ begin
 							end if;
 							
 						end if;
-						if (num_inputs = 2) then
+						if (num_inputs = 4) then
 							for i in 0 to 2 loop
 								if ((input_buffer(i + 1) = x"FF") and 
 								(input_buffer(i) = x"00")) then
