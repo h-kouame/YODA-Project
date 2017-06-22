@@ -44,6 +44,7 @@ ARCHITECTURE behavior OF detector_tb IS
          clk : IN  std_logic;
          cs : IN  std_logic;
          data_in : IN  std_logic_vector(15 downto 0);
+			ss : in STD_LOGIC_VECTOR (15 downto 0);
          led : OUT  std_logic_vector(7 downto 0)
         );
     END COMPONENT;
@@ -52,6 +53,7 @@ ARCHITECTURE behavior OF detector_tb IS
    --Inputs
    signal clk : std_logic := '0';
    signal cs : std_logic := '0';
+	signal ss : std_logic_vector(15 downto 0);
    signal data_in : std_logic_vector(15 downto 0) := (others => '0');
 
  	--Outputs
@@ -61,7 +63,7 @@ ARCHITECTURE behavior OF detector_tb IS
    constant clk_period : time := 10 ns;
 	
 	-- Other
-	shared variable count : integer range 0 to 9 := 0;
+	shared variable count : integer := 0;
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
@@ -69,6 +71,7 @@ BEGIN
           clk => clk,
           cs => cs,
           data_in => data_in,
+			 ss => ss,
           led => led
         );
 
@@ -87,21 +90,27 @@ BEGIN
    begin		
       -- hold reset state for 100 ns
 		--wait;
-		data_in <= x"FFFF";
+		data_in <= x"0000";
+		ss <= x"FFFF";
 		cs <= not cs;
 		cs <= not cs;
 		
-		for i in 0 to 500 loop
+		for i in 0 to 1000 loop
 		
 			wait for clk_period*2;
 			cs <= not cs;
-			
 			if (cs = '1') then
+				
 				count := count + 1;
 			end if;
+			
+			if (count = 2) then
+				ss <= x"0000";
+			end if;
 			-- insert stimulus here 
-			if (count = 10) then
-				data_in <= x"0000";
+			if (count = 11) then
+				
+				data_in <= x"FFFF";
 			end if;
 		end loop;
 
