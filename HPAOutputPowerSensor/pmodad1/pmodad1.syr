@@ -1,16 +1,16 @@
-Release 14.7 - xst P.20131013 (nt)
+Release 14.7 - xst P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.86 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.25 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.86 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.26 secs
  
 --> Reading design: pmodad1.prj
 
@@ -105,7 +105,7 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Xilinx\14.7\ISE_DS\pmodad1\pmodad1.vhd" into library work
+Parsing VHDL file "C:\Users\KZM\Google Drive\Work\EEE4084F\YODA Code\YODA-Project\HPAOutputPowerSensor\pmodad1\pmodad1.vhd" into library work
 Parsing entity <pmodad1>.
 Parsing architecture <Behavioral> of entity <pmodad1>.
 
@@ -114,23 +114,25 @@ Parsing architecture <Behavioral> of entity <pmodad1>.
 =========================================================================
 
 Elaborating entity <pmodad1> (architecture <Behavioral>) with generics from library <work>.
-INFO:HDLCompiler:679 - "C:\Xilinx\14.7\ISE_DS\pmodad1\pmodad1.vhd" Line 113. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "C:\Users\KZM\Google Drive\Work\EEE4084F\YODA Code\YODA-Project\HPAOutputPowerSensor\pmodad1\pmodad1.vhd" Line 121. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:1127 - "C:\Users\KZM\Google Drive\Work\EEE4084F\YODA Code\YODA-Project\HPAOutputPowerSensor\pmodad1\pmodad1.vhd" Line 73: Assignment to prev ignored, since the identifier is never used
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <pmodad1>.
-    Related source file is "C:\Xilinx\14.7\ISE_DS\pmodad1\pmodad1.vhd".
+    Related source file is "C:\Users\KZM\Google Drive\Work\EEE4084F\YODA Code\YODA-Project\HPAOutputPowerSensor\pmodad1\pmodad1.vhd".
         clk_div = 100
         pmod_clk_cycles = 16
+    Found 1-bit register for signal <state[1]_pmod_clk_sig_DFF_2_q>.
     Found 2-bit register for signal <state[1]_dff_14_OUT>.
     Found 16-bit register for signal <state[1]_dff_15_OUT>.
     Found 16-bit register for signal <state[1]_dff_16_OUT>.
     Found 32-bit register for signal <state[1]_dff_17_OUT>.
     Found 16-bit register for signal <data_ch1_sig[15]_dff_18_OUT>.
     Found 16-bit register for signal <data_ch2_sig[15]_dff_19_OUT>.
-    Found 1-bit register for signal <pmod_cs_sig_pmod_clk_sig_DFF_52_q>.
+    Found 1-bit register for signal <pmod_cs_sig_pmod_clk_sig_DFF_53_q>.
     Found 32-bit register for signal <clk_cnt>.
     Found 1-bit register for signal <pmod_clk_sig>.
     Found 1-bit register for signal <pmod_clk>.
@@ -142,12 +144,11 @@ Synthesizing Unit <pmodad1>.
     Found 16-bit register for signal <data_ch1>.
     Found 16-bit register for signal <data_ch2>.
     Found 1-bit register for signal <pmod_cs>.
-    Found 1-bit register for signal <state[1]_pmod_clk_sig_DFF_1_q>.
-    Found 32-bit subtractor for signal <clk_cnt[31]_GND_6_o_sub_1_OUT<31:0>> created at line 79.
-    Found 32-bit subtractor for signal <pmod_clk_cycles_var[31]_GND_6_o_sub_5_OUT<31:0>> created at line 106.
-    Found 16-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_11_OUT> created at line 91.
-    Found 16-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_12_OUT> created at line 91.
-    Found 32-bit comparator greater for signal <pmod_clk_cycles_var[31]_GND_6_o_LessThan_4_o> created at line 103
+    Found 32-bit subtractor for signal <clk_cnt[31]_GND_6_o_sub_1_OUT<31:0>> created at line 87.
+    Found 32-bit subtractor for signal <pmod_clk_cycles_var[31]_GND_6_o_sub_5_OUT<31:0>> created at line 114.
+    Found 16-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_11_OUT> created at line 99.
+    Found 16-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_12_OUT> created at line 99.
+    Found 32-bit comparator greater for signal <pmod_clk_cycles_var[31]_GND_6_o_LessThan_4_o> created at line 111
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred 234 D-type flip-flop(s).
@@ -359,16 +360,16 @@ Timing constraint: Default OFFSET IN BEFORE for Clock 'pmod_clk_sig'
 -------------------------------------------------------------------------
 Offset:              2.211ns (Levels of Logic = 2)
   Source:            pmod_data1 (PAD)
-  Destination:       _i000026_0 (FF)
+  Destination:       _i000027_0 (FF)
   Destination Clock: pmod_clk_sig falling
 
-  Data Path: pmod_data1 to _i000026_0
+  Data Path: pmod_data1 to _i000027_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             1   1.222   0.684  pmod_data1_IBUF (pmod_data1_IBUF)
      LUT5:I3->O            1   0.203   0.000  Mmux_state[1]_X_6_o_wide_mux_11_OUT11 (state[1]_X_6_o_wide_mux_11_OUT<0>)
-     FD_1:D                    0.102          _i000026_0
+     FD_1:D                    0.102          _i000027_0
     ----------------------------------------
     Total                      2.211ns (1.527ns logic, 0.684ns route)
                                        (69.1% logic, 30.9% route)
@@ -417,14 +418,14 @@ clk            |         |         |    4.324|         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 9.77 secs
+Total REAL time to Xst completion: 17.00 secs
+Total CPU time to Xst completion: 17.03 secs
  
 --> 
 
-Total memory usage is 245868 kilobytes
+Total memory usage is 252476 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

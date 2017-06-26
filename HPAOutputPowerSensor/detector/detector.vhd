@@ -138,15 +138,15 @@ begin
 							-- If there are enough inputs then check the buffer
 							if (num_inputs = 3) then
 								for i in 0 to 1 loop
-									if ((input_buffer(i + 1) = x"FF") and 
-									(input_buffer(i) = x"00")) then
+									if ((input_buffer(i + 1) = x"FF") or 
+									(input_buffer(i) = x"FF")) then
 										state <= found;
 										exit;
 									end if;
 								end loop;
 							elsif (num_inputs = 2) then
-								if ((input_buffer(2) = x"FF") and 
-									(input_buffer(1) = x"00")) then
+								if ((input_buffer(2) = x"FF") or 
+									(input_buffer(1) = x"FF")) then
 										state <= found;
 								end if;
 							end if;

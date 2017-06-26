@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/KZM/Google Drive/Work/EEE4084F/YODA Code/YODA-Project/HPAOutputPowerSensor/sniffer/detector_tb_isim_beh.exe" -prj "C:/Users/KZM/Google Drive/Work/EEE4084F/YODA Code/YODA-Project/HPAOutputPowerSensor/sniffer/detector_tb_beh.prj" "work.detector_tb" 

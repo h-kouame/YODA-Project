@@ -64,8 +64,11 @@ ARCHITECTURE behavior OF pmod_tb IS
    signal data_ch2 : std_logic_vector(15 downto 0);
 
    -- Clock period definitions
-   constant clk_period : time := 10 ns;
+   constant clk_period : time := 1 ns;
    constant pmod_clk_period : time := 10 ns;
+	
+	-- Other
+	shared variable count : integer range 0 to 1500 := 0;
  
 BEGIN
  
@@ -103,17 +106,10 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
 
-
       -- insert stimulus here 
 		pmod_data1 <= '1';
-		
-		for i in 0 to 5000 loop
-		
-			--wait for clk_period*2;
-			
-		end loop;
+		pmod_data2 <= '1'; 
 
-      wait;
       wait;
    end process;
 

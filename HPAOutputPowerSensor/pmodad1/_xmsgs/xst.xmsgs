@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"C:\Users\KZM\Google Drive\Work\EEE4084F\YODA Code\YODA-Project\HPAOutputPowerSensor\pmodad1\pmodad1.vhd" Line 73: Assignment to <arg fmt="%s" index="1">prev</arg> ignored, since the identifier is never used
+</msg>
+
 </messages>
 

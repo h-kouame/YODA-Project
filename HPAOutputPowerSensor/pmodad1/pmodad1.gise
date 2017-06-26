@@ -33,6 +33,7 @@
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="pmodad1.sym" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="pmodad1.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="pmodad1.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="pmodad1_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="pmodad1_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="pmodad1_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="pmodad1_xst.xrpt"/>
@@ -69,8 +70,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1468919142" xil_pn:in_ck="176756200596181174" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="5766203332902810607" xil_pn:start_ts="1468919119">
+    <transform xil_pn:end_ts="1498087976" xil_pn:in_ck="176756200596181174" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="5766203332902810607" xil_pn:start_ts="1498087953">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="pmodad1.lso"/>
