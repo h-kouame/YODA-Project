@@ -9,6 +9,8 @@
  * the Free Software Foundation; either version 2 of the License.
  *
  * Cross-compile with cross-gcc -I/path/to/cross-kernel/include
+ * got code from
+ * https://raw.githubusercontent.com/raspberrypi/linux/rpi-3.10.y/Documentation/spi/spidev_test.c
  */
 
 #include <stdint.h>
