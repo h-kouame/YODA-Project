@@ -1,0 +1,30 @@
+## This file is a general .ucf for Nexys3 rev B board
+## To use it in a project:
+## - remove or comment the lines corresponding to unused pins
+## - rename the used signals according to the project
+
+##Clock signal
+NET "clk" LOC = V10 | IOSTANDARD = LVCMOS33;
+NET "clk" PERIOD = 10 ns HIGH 5 ns;
+
+## Leds
+NET "led<0>" LOC = U16 | IOSTANDARD = LVCMOS33 | TIG; 
+NET "led<1>" LOC = V16 | IOSTANDARD = LVCMOS33 | TIG; 
+NET "led<2>" LOC = U15 | IOSTANDARD = LVCMOS33 | TIG; 
+NET "led<3>" LOC = V15 | IOSTANDARD = LVCMOS33 | TIG; 
+NET "led<4>" LOC = M11 | IOSTANDARD = LVCMOS33 | TIG; 
+NET "led<5>" LOC = N11 | IOSTANDARD = LVCMOS33 | TIG; 
+NET "led<6>" LOC = R11 | IOSTANDARD = LVCMOS33 | TIG; 
+NET "led<7>" LOC = T11 | IOSTANDARD = LVCMOS33 | TIG; 
+
+## PMOD
+# IN
+NET "pmod_data1" LOC = V12 | IOSTANDARD = LVCMOS33 | TIG; 
+NET "pmod_data2" LOC = N10 | IOSTANDARD = LVCMOS33 | TIG; 
+# OUT
+NET "pmod_cs" LOC = T12 | IOSTANDARD = LVCMOS33 | TIG; 
+NET "pmod_clk" LOC = P11 | IOSTANDARD = LVCMOS33 | TIG; 
+
+## Buttons
+#  Reset
+NET "btns" LOC = B8 | IOSTANDARD = LVCMOS33 | TIG;
